@@ -1,0 +1,32 @@
+GET http://localhost:3080/api/users
+
+###
+GET http://localhost:3080/api/users/1
+
+###
+POST http://localhost:3080/api/users
+Content-Type: application/json
+
+    {
+      "firstName": "Cristian",
+      "lastName": "Castellanos",
+      "email": "criscas@example.com",
+      "phoneNumber": "1234567890",
+      "password": "abc123"
+    }
+
+###
+PUT http://localhost:3080/api/users/430fa2cf-b484-4a31-a95e-b1de109ebb26
+Content-Type: application/json
+
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "johndoe@example.com",
+      "phoneNumber": "345677890",
+      "password": "qwe456"
+    }
+
+###
+DELETE http://localhost:3080/api/users/430fa2cf-b484-4a31-a95e-b1de109ebb26
