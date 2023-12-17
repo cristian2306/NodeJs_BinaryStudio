@@ -1,0 +1,38 @@
+GET http://localhost:3080/api/fighters
+
+###
+GET http://localhost:3080/api/fighters/1
+
+###
+POST http://localhost:3080/api/fighters
+Content-Type: application/json
+
+{
+    "name": "Sting Eucliffe",
+    "health": 70,
+    "power": 85,
+    "defense": 8
+}
+
+###
+POST http://localhost:3080/api/fighters
+Content-Type: application/json
+
+{
+    "name": "Rogue Cheney",
+    "power": 90,
+    "defense": 10
+}
+
+###
+PUT http://localhost:3080/api/fighters/8f4cd4fc-3b62-4c61-8841-6b7dcd55764d
+Content-Type: application/json
+
+{
+    "name": "Rogue Cheney",
+    "power": 90,
+    "defense": 7
+}
+
+###
+DELETE http://localhost:3080/api/fighters/82306f4a-e428-4892-8009-55036bdefa33
