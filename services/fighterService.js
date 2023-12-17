@@ -2,9 +2,6 @@ import { fighterRepository } from "../repositories/fighterRepository.js";
 
 class FighterService {
   // TODO: Implement methods to work with fighters
-  constructor() {
-    this.fightRepository = fighterRepository
-  }
   /*
     id: "",
     name: "",
@@ -14,23 +11,25 @@ class FighterService {
   */
   //getFighters
   getFighters() {
-    return fightRepository.getAll()
+    return fighterRepository.getAll()
   }
   //getFighter
   getFighter(id) {
-    return fightRepository.getOne({ id })
+    const fighter = fighterRepository.getOne({ id })
+    if (!fighter) { return null }
+    return fighter
   }
   //postFighter
   createFighter({ name, health = 100, power, defense }) {
-    return fightRepository.create({ name, health, power, defense })
+    return fighterRepository.create({ name, health, power, defense })
   }
   //putFighter
   updateFighter(id, fighterToUpdate) {
-    return fightRepository.update(id, fighterToUpdate)
+    return fighterRepository.update(id, fighterToUpdate)
   }
   //DeleteFighter
   deleteFighter(id) {
-    return fightRepository.delete(id)
+    return fighterRepository.delete(id)
   }
 }
 
