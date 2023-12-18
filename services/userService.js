@@ -18,6 +18,10 @@ class UserService {
     }
     return item;
   }
+
+  getUser(id) {
+    return userRepository.getOne({ id })
+  }
   //getUsers
   getUsers() {
     return userRepository.getAll()

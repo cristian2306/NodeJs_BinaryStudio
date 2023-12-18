@@ -15,7 +15,7 @@ router.get('', (req, res) => {
 // GET / api / users /: id
 router.get('/:id', (req, res) => {
   const { id } = req.params
-  const user = userService.search({ id })
+  const user = userService.getUser(id)
   res.send(user)
 })
 // POST / api / users

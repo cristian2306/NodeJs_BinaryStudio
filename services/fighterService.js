@@ -9,6 +9,13 @@ class FighterService {
     power: 0,
     defense: 1, // 1 to 10
   */
+  search(search) {
+    const item = userRepository.getOne(search);
+    if (!item) {
+      return null;
+    }
+    return item;
+  }
   //getFighters
   getFighters() {
     return fighterRepository.getAll()

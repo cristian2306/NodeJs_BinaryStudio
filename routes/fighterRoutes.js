@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
   res.send(fighter)
 })
 // POST / api / fighters
-router.post('', (req, res) => {
+router.post('', createFighterValid, (req, res) => {
   const fighter = req.body
   const createFighter = fighterService.createFighter(fighter)
   res.send(createFighter)
