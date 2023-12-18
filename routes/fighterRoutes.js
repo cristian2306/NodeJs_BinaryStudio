@@ -25,7 +25,7 @@ router.post('', createFighterValid, (req, res) => {
   res.send(createFighter)
 })
 // PUT / api / fighters /: id
-router.put('/:id', (req, res) => {
+router.put('/:id', updateFighterValid, (req, res) => {
   const { id } = req.params
   const fighter = req.body
   const updatedFighter = fighterService.updateFighter(id, fighter)

@@ -11,7 +11,8 @@ const MESSAGE_VALIDATION = {
   DEFENSE_VALIDATION: 'The defense has to be inside 1 and 10',
   HEALTH_VALIDATION: 'The health has to be inside 80 and 120',
   EXTRA_FIELD_NOT_ALLOWED: 'Extra field not allowed',
-  MISSED_FIELD: 'Missed field'
+  MISSED_FIELD: 'Missed field',
+  UPDATE_ERROR: 'At least one field must be present'
 }
 
 const FIGHTER_FIELDS = ['name', 'power', 'defense']
