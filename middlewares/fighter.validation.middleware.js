@@ -11,11 +11,11 @@ const fighterKeys = Object.keys(FIGHTER)
 let errors
 
 function validateFieldNumber({ max, min, errorMessage }, value) {
-  console.log(max, min, errorMessage, value)
   if (!(min <= value && value <= max)) {
     errors.push({ statusCode: 400, message: errorMessage })
   }
 }
+
 function validateExtraFields(reqKeys) {
   reqKeys.forEach((key) => {
     if (!fighterKeys.includes(key)) {
@@ -23,15 +23,15 @@ function validateExtraFields(reqKeys) {
     }
   })
 }
+
 function validateFields(res, fighter) {
   //Validate all fiels
   const reqKeys = Object.keys(fighter)
-  console.log({ fighterKeys })
   validateExtraFields(reqKeys)
   //Validates missed fields
   FIGHTER_FIELDS.forEach(key => {
     if (!reqKeys.includes(key)) {
-      console.log({ key })
+
       errors.push({ statusCode: 400, message: `${MESSAGE_VALIDATION.MISSED_FIELD}: ${key}` })
     }
   })
@@ -50,12 +50,12 @@ const validateFieldsFormat = (fighter) => {
 
 const validateErrors = (next, res) => {
   if (errors.length === 0) {
-    console.log('No hay errores')
+
     next()
   } else {
     let errorMessage = ''
     errors.forEach(error => {
-      console.log({ error })
+
       errorMessage += error.message + ','
     })
     res.status(400).send({ error: true, message: errorMessage })
@@ -66,16 +66,13 @@ const createFighterValid = (req, res, next) => {
   errors = new Array()
   // TODO: Implement validatior for FIGHTER entity during creation
   // all fields are required, except for id and health
-  console.log(req.body)
   const fighter = req.body
-  console.log({ fighter })
   validateFields(res, fighter)
-  const { name, power, defense, health, id } = fighter
+  const { id } = fighter
   //Validate id Propertie
   if (id) {
     delete fighter.id
   }
-  console.log('Body', req.body)
   //Validate fields format
   validateFieldsFormat(fighter)
   validateErrors(next, res)

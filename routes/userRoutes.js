@@ -19,13 +19,13 @@ router.get('/:id', (req, res) => {
   res.send(user)
 })
 // POST / api / users
-router.post('', (req, res) => {
+router.post('', createUserValid, (req, res) => {
   const user = req.body
   const createuser = userService.createUser(user)
   res.send(createuser)
 })
 // PUT / api / users /: id
-router.put('/:id', (req, res) => {
+router.put('/:id', updateUserValid, (req, res) => {
   const { id } = req.params
   const user = req.body
   const updateduser = userService.updateUser(id, user)
