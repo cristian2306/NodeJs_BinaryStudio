@@ -54,7 +54,7 @@ const validateErrors = (next, res) => {
       console.log({ error })
       errorMessage += error.message + ','
     })
-    res.err = { codeStatus: 400, message: errorMessage }
+    res.err = { statusCode: 400, message: errorMessage }
   }
   next()
 }

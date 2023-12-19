@@ -62,7 +62,7 @@ const validateErrors = (next, res) => {
     errors.forEach(error => {
       errorMessage += error.message + ','
     })
-    res.err = { codeStatus: 400, message: errorMessage }
+    res.err = { statusCode: 400, message: errorMessage }
   }
   next()
 }

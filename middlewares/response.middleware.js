@@ -6,8 +6,8 @@ const responseMiddleware = (req, res, next) => {
   if (data) {
     res.status(200).send(data).end()
   } else if (err) {
-    const { codeStatus, message } = err
-    res.status(codeStatus).send({ error: true, message }).end()
+    const { statusCode, message } = err
+    res.status(statusCode).send({ error: true, message }).end()
   }
 };
 
