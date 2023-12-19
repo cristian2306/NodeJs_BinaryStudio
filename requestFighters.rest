@@ -8,7 +8,7 @@ Content-Type: application/json
 
 {
     "name": "Sting Eucliffe",
-    "health": 70,
+    "health": 100,
     "power": 85,
     "defense": 8
 }

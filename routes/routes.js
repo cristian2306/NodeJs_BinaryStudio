@@ -13,6 +13,7 @@ const initRoutes = (app) => {
     console.log(req.body)
     next()
   })
+
   app.use("/api/users", userRoutes);
   app.use("/api/fighters", fighterRoutes);
   app.use("/api/fights", fightRoutes);

@@ -49,17 +49,14 @@ const validateFieldsFormat = (fighter) => {
 }
 
 const validateErrors = (next, res) => {
-  if (errors.length === 0) {
-
-    next()
-  } else {
+  if (errors.length > 0) {
     let errorMessage = ''
     errors.forEach(error => {
-
       errorMessage += error.message + ','
     })
-    res.status(400).send({ error: true, message: errorMessage })
+    res.err = { codeStatus: 400, message: errorMessage }
   }
+  next()
 }
 
 const createFighterValid = (req, res, next) => {
