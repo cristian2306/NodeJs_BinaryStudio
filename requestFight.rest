@@ -1,0 +1,39 @@
+GET http://localhost:3080/api/fight 
+
+###
+POST http://localhost:3080/api/fights
+Content-Type: application/json
+
+    {
+  "fighter1": "id",
+  "fighter2": "id",
+  "log": [
+    {
+      "fighter1Shot": 0,
+      "fighter2Shot": 0,
+      "fighter1Health": 0,
+      "fighter2Health": 0
+    }
+  ]
+}
+
+###
+PUT http://localhost:3080/api/fights/"2f1e53b9-d3fd-4b50-9a60-38c575c51f9e"
+Content-Type: application/json
+
+{
+  "log":[
+    {
+      "fighter1Shot": 0,
+      "fighter2Shot": 0,
+      "fighter1Health": 0,
+      "fighter2Health": 0
+    },
+    {
+      "fighter1Shot": 20,
+      "fighter2Shot": 0,
+      "fighter1Health": 100,
+      "fighter2Health": 80 
+    }
+    ]
+}

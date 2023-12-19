@@ -1,6 +1,6 @@
 import { fightRepository } from "../repositories/fightRepository.js";
 
-class FightersService {
+class FighService {
   // OPTIONAL TODO: Implement methods to work with fights
   search(search) {
     const item = fightRepository.getOne(search);
@@ -31,6 +31,6 @@ class FightersService {
   }
 }
 
-const fightersService = new FightersService();
+const fightService = new FighService();
 
-export { fightersService };
+export { fightService };
