@@ -24,11 +24,11 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3080/api/fighters/82306f4a-e428-4892-8009-55036bdefa33
+PUT http://localhost:3080/api/fighters/7b88987b-2ef0-4b81-b216-6b1ff695d29d
 Content-Type: application/json
 
 {
-    "name": "Rogue Cheney",
+    "name": "Mirajane Strauss",
     "power": 90,
     "defense": 7
 }

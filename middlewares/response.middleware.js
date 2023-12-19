@@ -4,12 +4,11 @@ const responseMiddleware = (req, res, next) => {
   console.log('se supone que entro')
   console.log({ data }, { err })
   if (data) {
-    res.status(200).send(data)
+    res.status(200).send(data).end()
   } else if (err) {
     const { codeStatus, message } = err
-    res.status(codeStatus).send({ error: true, message })
+    res.status(codeStatus).send({ error: true, message }).end()
   }
-  next();
 };
 
 export { responseMiddleware };

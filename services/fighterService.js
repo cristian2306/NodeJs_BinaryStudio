@@ -10,7 +10,7 @@ class FighterService {
     defense: 1, // 1 to 10
   */
   search(search) {
-    const item = userRepository.getOne(search);
+    const item = fighterRepository.getOne(search);
     if (!item) {
       return null;
     }

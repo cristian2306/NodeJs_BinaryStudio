@@ -11,48 +11,68 @@ const router = Router();
 function haveError(res, next) {
   console.log(res.err)
   if (res.err) {
-    next()
+    throw new Error()
   }
 }
 
 router.get('', (req, res, next) => {
-  haveError(res, next)
-  const fighters = fighterService.getFighters();
-  res.data = fighters
-  next()
+  try {
+    haveError(res)
+    const fighters = fighterService.getFighters();
+    res.data = fighters
+    next()
+  } catch (error) {
+    next()
+  }
 })
 // GET / api / fighters /: id
 router.get('/:id', (req, res, next) => {
-  haveError(res, next)
-  const { id } = req.params
-  const fighter = fighterService.getFighter(id)
-  res.data = fighter
-  next()
+  try {
+    haveError(res)
+    const { id } = req.params
+    const fighter = fighterService.getFighter(id)
+    res.data = fighter
+    next()
+  } catch (error) {
+    next()
+  }
 })
 // POST / api / fighters
 router.post('', createFighterValid, (req, res, next) => {
-  haveError(res, next)
-  const fighter = req.body
-  const createFighter = fighterService.createFighter(fighter)
-  res.data = createFighter
-  next()
+  try {
+    haveError(res)
+    const fighter = req.body
+    const createFighter = fighterService.createFighter(fighter)
+    res.data = createFighter
+    next()
+  } catch (error) {
+    next()
+  }
 })
 // PUT / api / fighters /: id
 router.put('/:id', updateFighterValid, (req, res, next) => {
-  haveError(res, next)
-  const { id } = req.params
-  const fighter = req.body
-  const updatedFighter = fighterService.updateFighter(id, fighter)
-  res.data = updatedFighter
-  next()
+  try {
+    haveError(res)
+    const { id } = req.params
+    const fighter = req.body
+    const updatedFighter = fighterService.updateFighter(id, fighter)
+    res.data = updatedFighter
+    next()
+  } catch (error) {
+    next()
+  }
 })
 // DELETE / api / fighters /: id
 router.delete('/:id', (req, res, next) => {
-  haveError(res, next)
-  const { id } = req.params
-  const deletedFighter = fighterService.deleteFighter(id)
-  res.data = deletedFighter
-  next()
+  try {
+    haveError(res)
+    const { id } = req.params
+    const deletedFighter = fighterService.deleteFighter(id)
+    res.data = deletedFighter
+    next()
+  } catch (error) {
+    next()
+  }
 })
 
 router.use(responseMiddleware)

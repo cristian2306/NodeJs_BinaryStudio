@@ -5,6 +5,8 @@ import {
   FIELDS_FORMAT
 } from "../models/fighter.js";
 
+import { fighterService } from '../services/fighterService.js'
+
 //GUardar en un arreglo los errores
 const fighterKeys = Object.keys(FIGHTER)
 
@@ -44,6 +46,12 @@ const validateFieldsFormat = (fighter) => {
     const key = field.toUpperCase()
     if (fields.includes(key)) {
       validateFieldNumber(FIELDS_FORMAT[key], fighter[field])
+    }
+    if (key === 'NAME') {
+      const respSearch = fighterService.search({ name: fighter.name })
+      if (respSearch) {
+        errors.push({ statusCode: 400, message: `${MESSAGE_VALIDATION.SAME_NAME}:${fighter.name}` })
+      }
     }
   })
 }

@@ -12,7 +12,9 @@ const MESSAGE_VALIDATION = {
   HEALTH_VALIDATION: 'The health has to be inside 80 and 120',
   EXTRA_FIELD_NOT_ALLOWED: 'Extra field not allowed',
   MISSED_FIELD: 'Missed field',
-  UPDATE_ERROR: 'At least one field must be present'
+  UPDATE_ERROR: 'At least one field must be present',
+  ID_FIELD: 'Id in the request body should NOT be present',
+  SAME_NAME: 'Name already exists'
 }
 
 const FIGHTER_FIELDS = ['name', 'power', 'defense']

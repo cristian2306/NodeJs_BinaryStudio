@@ -1,7 +1,7 @@
 GET http://localhost:3080/api/users
 
 ###
-GET http://localhost:3080/api/users/1
+GET http://localhost:3080/api/users/0
 
 ###
 POST http://localhost:3080/api/users
@@ -10,8 +10,8 @@ Content-Type: application/json
     {
       "firstName": "Cristian",
       "lastName": "Castellanos",
-      "email": "criscas@gmail@gmail.com",
-      "phoneNumber": "+380301568390",
+      "email": "crisoi@gmail.com",
+      "phoneNumber": "+381309568390",
       "password": "123"
     }
 

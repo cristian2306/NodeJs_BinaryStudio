@@ -1,3 +1,5 @@
+import { userService } from '../services/userService.js'
+
 const USER = {
   id: "",
   firstName: "",
@@ -18,7 +20,8 @@ const MESSAGE_VALIDATION = {
   EXTRA_FIELD_NOT_ALLOWED: 'Extra field not allowed',
   MISSED_FIELD: 'Missed field',
   UPDATE_ERROR: 'At least one field must be present',
-  NOT_FOUND: 'User not found'
+  NOT_FOUND: 'User not found',
+  ID_FIELD: 'Id in the request body should NOT be present'
 }
 
 
@@ -29,6 +32,8 @@ const FIELDS_FORMAT = {
   email: (email) => {
     if (!email.includes('@gmail')) {
       return errorTemplate(MESSAGE_VALIDATION.EMAIL_VALIDATION)
+    } else if (userService.search({ email })) {
+      return errorTemplate(MESSAGE_VALIDATION.SAME_EMAIL)
     } else {
       return { error: false }
     }
@@ -38,6 +43,8 @@ const FIELDS_FORMAT = {
       return errorTemplate(MESSAGE_VALIDATION.PHONE_NUMBER_STARTS)
     } else if (number.length < 13) {
       return errorTemplate(MESSAGE_VALIDATION.PHONE_NUMBER_LENGHT)
+    } else if (userService.search({ phoneNumber: number })) {
+      return errorTemplate(`${MESSAGE_VALIDATION.SAME_PHONENUMBER}`)
     } else {
       return { error: false }
     }
